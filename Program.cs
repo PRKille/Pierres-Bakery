@@ -25,7 +25,7 @@ namespace PierresBakery
       Console.ForegroundColor = ConsoleColor.Yellow;
       Console.Write($"\nLevain, Como, and Baguettes.\n");
       Console.ForegroundColor = ConsoleColor.Red;
-      Console.WriteLine($"\nWe're currently running two specials:\nBuy 2 $5 loaves of bread get 1 free!\nFor Pastry Buy 1 for $2 or stock up with 3 for $5!");
+      Console.WriteLine($"\nWe're currently running two specials:\nBuy 2 loaves of the same bread get a third free!\nFor Pastry Buy 1 for $2 or stock up with 3 for $5!");
       Order();
     }
 
@@ -62,8 +62,7 @@ namespace PierresBakery
     {
       Console.Write($"How many loaves of {type} would you like: ");
       int breadLoaves = int.Parse(Console.ReadLine());
-      bread.Loaves = breadLoaves;
-      bread.BreadDeal();
+      bread.Loaves += breadLoaves;
       OrderMore();
      }
 
@@ -72,13 +71,12 @@ namespace PierresBakery
       Console.Write("How many pastries would you like: ");
       int pastries = int.Parse(Console.ReadLine());
       pastryOrder.Pastries = pastries;
-      pastryOrder.PastryDeal();
       OrderMore();
     }
 
     public static void OrderMore()
     {
-      Console.Write("Would you like to order more Y/N: ");
+      Console.Write("Would you like to continue shopping? Y/N: ");
       string answer = Console.ReadLine().ToLower();
       if (answer == "y" || answer == "yes")
       {
@@ -99,18 +97,22 @@ namespace PierresBakery
       string orderTypes = $"Your order is:\n";
       if (levain.Loaves != 0)
       {
+        levain.BreadDeal();
         orderTypes += levain.Loaves +" loaves of levain.\n";
       }
       if (baguette.Loaves != 0)
       {
+        baguette.BreadDeal();
         orderTypes += baguette.Loaves +" baguettes.\n";
       }
+      como.BreadDeal();
       if (como.Loaves != 0)
       {
         orderTypes += como.Loaves +" loaves of como.\n";
       }
       if (pastryOrder.Pastries != 0)
       {
+        pastryOrder.PastryDeal();
         orderTypes += pastryOrder.Pastries +" pastries.";
       }
       return $"{orderTypes}\nYour total is ${pastryOrder.Price+levain.Total+baguette.Total+como.Total}";
