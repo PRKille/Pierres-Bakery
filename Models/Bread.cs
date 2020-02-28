@@ -4,16 +4,18 @@ namespace PierresBakery.Models
   {
     public int Loaves { get; set; }
     public int Price { get; set; }
+    public int Total { get; set; }
 
-    public Bread()
+    public Bread(int price)
     {
       Loaves = 0;
-      Price = 0;
+      Price = price;
+      Total = 0;
     }
 
     public void BreadDeal()
     {
-      Price = (Loaves*5)-(Loaves/3)*5;
+      Total = (Loaves*Price)-(Loaves/3)*Price;
     }
   }
 }
