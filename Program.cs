@@ -5,10 +5,10 @@ namespace PierresBakery
 {
   public class Program
   {
-    public static Bread levain = new Bread(7);
-    public static Bread baguette = new Bread(3);
-    public static Bread como = new Bread(5);
-    public static Pastry pastryOrder = new Pastry();
+    private static Bread _levain = new Bread(7);
+    private static Bread _baguette = new Bread(3);
+    private static Bread _como = new Bread(5);
+    private static Pastry _pastryOrder = new Pastry();
 
     public static void Main()
     {
@@ -38,15 +38,15 @@ namespace PierresBakery
       string bread = Console.ReadLine().ToLower();
       if (bread == "levain")
       {
-        OrderBread(levain, bread);
+        OrderBread(_levain, bread);
       }
       else if (bread == "como")
       {
-        OrderBread(como, bread);
+        OrderBread(_como, bread);
       }
       else if (bread == "baguette")
       {
-        OrderBread(baguette, bread);
+        OrderBread(_baguette, bread);
       }
       else if (bread == "pastry")
       {
@@ -70,7 +70,7 @@ namespace PierresBakery
     {
       Console.Write("How many pastries would you like: ");
       int pastries = int.Parse(Console.ReadLine());
-      pastryOrder.Pastries = pastries;
+      _pastryOrder.Pastries = pastries;
       OrderMore();
     }
 
@@ -95,27 +95,28 @@ namespace PierresBakery
     public static string Total()
     {
       string orderTypes = $"Your order is:\n";
-      if (levain.Loaves != 0)
+      if (_levain.Loaves != 0)
       {
-        levain.BreadDeal();
-        orderTypes += levain.Loaves +" loaves of levain.\n";
+        _levain.BreadDeal();
+        orderTypes += _levain.Loaves +" loaves of levain.\n";
       }
-      if (baguette.Loaves != 0)
+      if (_baguette.Loaves != 0)
       {
-        baguette.BreadDeal();
-        orderTypes += baguette.Loaves +" baguettes.\n";
+        _baguette.BreadDeal();
+        orderTypes += _baguette.Loaves +" baguettes.\n";
       }
-      como.BreadDeal();
-      if (como.Loaves != 0)
+      _como.BreadDeal();
+      if (_como.Loaves != 0)
       {
-        orderTypes += como.Loaves +" loaves of como.\n";
+        orderTypes += _como.Loaves +" loaves of como.\n";
       }
-      if (pastryOrder.Pastries != 0)
+      if (_pastryOrder.Pastries != 0)
       {
-        pastryOrder.PastryDeal();
-        orderTypes += pastryOrder.Pastries +" pastries.";
+        _pastryOrder.PastryDeal();
+        orderTypes += _pastryOrder.Pastries +" pastries.";
       }
-      return $"{orderTypes}\nYour total is ${pastryOrder.Price+levain.Total+baguette.Total+como.Total}";
+      int orderTotal = _pastryOrder.Price+_levain.Total+_baguette.Total+_como.Total;
+      return $"{orderTypes}\nYour total is ${orderTotal}";
     }
   }
 }
