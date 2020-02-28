@@ -9,15 +9,32 @@ namespace PierresBakery
     public static Bread baguette = new Bread(3);
     public static Bread como = new Bread(5);
     public static Pastry pastryOrder = new Pastry();
+
     public static void Main()
     {
-      Console.WriteLine("Welcome to Pierre's Bakery. Where we're more Canadian than French. Sorry!\nWe carry three types of bread:\nLevain, Como, and Baguettes.\nWe're currently running two specials:\nBuy 2 $5 loaves of bread get 1 free!\nFor Pastry Buy 1 for $2 or stock up with 3 for $5!");
+      Console.BackgroundColor = ConsoleColor.Green;
+      Console.ForegroundColor = ConsoleColor.Black;
+      Console.WriteLine(@".______    __   _______ .______      .______       _______ __     _______.   .______        ___       __  ___  _______ .______     ____    ____  __             
+|   _  \  |  | |   ____||   _  \     |   _  \     |   ____(_ )   /       |   |   _  \      /   \     |  |/  / |   ____||   _  \    \   \  /   / |  | 
+|  |_)  | |  | |  |__   |  |_)  |    |  |_)  |    |  |__   |/   |   (----`   |  |_)  |    /  ^  \    |  '  /  |  |__   |  |_)  |    \   \/   /  |  | 
+|   ___/  |  | |   __|  |      /     |      /     |   __|        \   \       |   _  <    /  /_\  \   |    <   |   __|  |      /      \_    _/   |  | 
+|  |      |  | |  |____ |  |\  \----.|  |\  \----.|  |____   .----)   |      |  |_)  |  /  _____  \  |  .  \  |  |____ |  |\  \----.   |  |     |__| 
+| _|      |__| |_______|| _| `._____|| _| `._____||_______|  |_______/       |______/  /__/     \__\ |__|\__\ |_______|| _| `._____|   |__|     (__)");
+      Console.ResetColor();
+      Console.Write("\n\nWelcome to Pierre's Bakery. Where we're more Canadian than French. Sorry!\nWe carry three types of bread:\n");
+      Console.ForegroundColor = ConsoleColor.Yellow;
+      Console.Write($"\nLevain, Como, and Baguettes.\n");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine($"\nWe're currently running two specials:\nBuy 2 $5 loaves of bread get 1 free!\nFor Pastry Buy 1 for $2 or stock up with 3 for $5!");
       Order();
     }
 
     public static void Order()
     {
-      Console.WriteLine("Would you like to order:\n\n[Levain] [Como] [Baguette] [Pastry]");
+      Console.WriteLine("Would you like to order:\n\n");
+      Console.ForegroundColor = ConsoleColor.Blue;
+      Console.WriteLine("[Levain] [Como] [Baguette] [Pastry]");
+      Console.ResetColor();
       string bread = Console.ReadLine().ToLower();
       if (bread == "levain")
       {
