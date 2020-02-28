@@ -13,7 +13,10 @@ _This console application will allow the user to place an order with Pierre's Ba
 
 | Specification | Example Input | Example Output |
 |:------------- |:-------------:| -------------------:|
-
+| Should greet user upon startup | dotnet run | "Welcome to Pierre's!"|
+| Should prompt user for number of loaves of bread and return cost | "How much bread would you like?" 2 | $10 |
+| Should prompt user for number of pastries and return cost | "How many pastries would you like?" 2 | $4 |
+| Should display total order with price | "Will that be all?" Y | "Your order is 2 loaves of bread and 2 pastries. That will be $14." |
 
 ## Setup/Installation Requirements
 
