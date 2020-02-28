@@ -18,6 +18,8 @@ _This console application will allow the user to place an order with Pierre's Ba
 | Should prompt user for number of pastries and return cost | "How many pastries would you like?" 2 | $4 |
 | Should display total order with price | "Will that be all?" Y | "Your order is 2 loaves of bread and 2 pastries. That will be $14." |
 | Price should reflect 2 for 1 on bread and 3 for $5 pastry pricing | 3 loaves and 3 pastry | Total is 15$ |
+| User can pick multiple types of bread | Levain 3, Como 2 | Total $24 |
+| User can add on to order | Levain 3, Levain 2 | Levain 5 |
 
 ## Setup/Installation Requirements
 
