@@ -34,6 +34,7 @@ namespace PierresBakery
       Console.WriteLine("Would you like to order:\n\n");
       Console.ForegroundColor = ConsoleColor.Blue;
       Console.WriteLine("[Levain] [Como] [Baguette] [Pastry] or type [View] to look at your order.");
+      Console.WriteLine("You may remove items by going to thier order screen and placing '-' in front of the number to remove.")
       Console.ResetColor();
       string bread = Console.ReadLine().ToLower();
       if (bread == "levain")
@@ -67,7 +68,14 @@ namespace PierresBakery
     {
       Console.Write($"How many loaves of {type} would you like: ");
       int breadLoaves = int.Parse(Console.ReadLine());
-      bread.Loaves += breadLoaves;
+      if ((bread.Loaves + breadLoaves) < 0 )
+      {
+        Console.WriteLine("We don't buy bread. Make sure you aren't taking out more than you have!");
+      }
+      else
+      {
+        bread.Loaves += breadLoaves;
+      }
       OrderMore();
      }
 
@@ -75,7 +83,14 @@ namespace PierresBakery
     {
       Console.Write("How many pastries would you like: ");
       int pastries = int.Parse(Console.ReadLine());
-      _pastryOrder.Pastries = pastries;
+      if ((_pastryOrder.Pastries + pastries) < 0 )
+      {
+        Console.WriteLine("We don't buy pastries. Make sure you aren't taking out more than you have!");
+      }
+      else
+      {
+        _pastryOrder.Pastries = pastries;
+      }
       OrderMore();
     }
 
