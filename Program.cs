@@ -33,7 +33,7 @@ namespace PierresBakery
     {
       Console.WriteLine("Would you like to order:\n\n");
       Console.ForegroundColor = ConsoleColor.Blue;
-      Console.WriteLine("[Levain] [Como] [Baguette] [Pastry]");
+      Console.WriteLine("[Levain] [Como] [Baguette] [Pastry] or type [View] to look at your order.");
       Console.ResetColor();
       string bread = Console.ReadLine().ToLower();
       if (bread == "levain")
@@ -51,6 +51,11 @@ namespace PierresBakery
       else if (bread == "pastry")
       {
         OrderPastry();
+      }
+      else if (bread == "view")
+      {
+        Console.WriteLine(Total());
+        Order();
       }
       else
       {
@@ -85,6 +90,8 @@ namespace PierresBakery
       else if (answer == "n" || answer == "no")
       {
         Console.WriteLine(Total());
+        Console.WriteLine("Thank you for shopping with us!");
+        Environment.Exit(0);
       }
       else
       {
