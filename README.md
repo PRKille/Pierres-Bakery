@@ -6,10 +6,9 @@
 
 ## Description
 
-_This console application will allow the user to place an order with Pierre's Bakery and will return the total cost of that order._
+_This console application will allow the user to place an order with Pierre's Bakery and will return a summary and the total cost of that order._
 
 ## Specifications:
-
 
 | Specification | Example Input | Example Output |
 |:------------- |:-------------:| -------------------:|
@@ -20,6 +19,9 @@ _This console application will allow the user to place an order with Pierre's Ba
 | Price should reflect 2 for 1 on bread and 3 for $5 pastry pricing | 3 loaves and 3 pastry | Total is 15$ |
 | User can pick multiple types of bread | Levain 3, Como 2 | Total $24 |
 | User can add on to order | Levain 3, Levain 2 | Levain 5 |
+| User can review their order | "View" | Levain 3, Como 1 |
+| User can remove items from their order | Has 3, Removes 2 | Levain 1 |
+| User cannot remove more items from their order than they have | Has 3, Removes 4 | We don't buy bread! |
 
 ## Setup/Installation Requirements
 
