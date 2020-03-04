@@ -13,7 +13,7 @@ namespace PierresBakery.Models
 
     public void PastryDeal()
     {
-      Price += (Pastries/3*5)+(Pastries%3*2);
+      Price = (Pastries/3*5)+(Pastries%3*2);
     }
   }
 }

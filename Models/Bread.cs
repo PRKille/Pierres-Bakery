@@ -16,7 +16,7 @@ namespace PierresBakery.Models
 
     public void BreadDeal()
     {
-      Total += (Loaves*Price)-(Loaves/3*Price);
+      Total = (Loaves*Price)-(Loaves/3*Price);
     }
   }
 }

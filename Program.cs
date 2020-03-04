@@ -33,7 +33,7 @@ namespace PierresBakery
     {
       Console.WriteLine("Would you like to order:\n\n");
       Console.ForegroundColor = ConsoleColor.Blue;
-      Console.WriteLine("[Levain] [Como] [Baguette] [Pastry] or type [View] to look at your order.");
+      Console.WriteLine("[Levain]($7) [Como]($5) [Baguette]($3) [Pastry]($2) or type [View] to look at your order.");
       Console.WriteLine("You may remove items by going to thier order screen and placing '-' in front of the number to remove.");
       Console.ResetColor();
       string bread = Console.ReadLine().ToLower();
@@ -89,7 +89,7 @@ namespace PierresBakery
       }
       else
       {
-        _pastryOrder.Pastries = pastries;
+        _pastryOrder.Pastries += pastries;
       }
       OrderMore();
     }
